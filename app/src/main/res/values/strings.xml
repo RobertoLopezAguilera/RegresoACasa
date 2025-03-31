@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">RegresoACasa</string>
-    <string name="google_maps_key">${MAPS_API_KEY}</string>
+    <string name="google_maps_key">AIzaSyAThP4BiJomMi22poHH1_ugLretiXGJUus</string>
 </resources>
