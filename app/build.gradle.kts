@@ -68,6 +68,7 @@ dependencies {
     implementation("com.google.android.libraries.places:places:4.1.0")
     implementation("com.google.android.gms:play-services-maps:18.2.0")
     implementation("com.google.maps.android:maps-ktx:5.0.0")
+    implementation("com.google.maps.android:maps-compose:4.4.1")
     implementation("com.google.maps.android:maps-utils-ktx:5.0.0")
     implementation("com.google.android.gms:play-services-location:21.0.1")
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
