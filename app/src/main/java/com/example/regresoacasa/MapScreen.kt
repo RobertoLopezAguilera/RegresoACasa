@@ -26,6 +26,8 @@ import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
+import androidx.compose.foundation.shape.RoundedCornerShape
+
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
@@ -40,9 +42,8 @@ fun MapScreen() {
     var destination by remember { mutableStateOf<LatLng?>(null) }
     var polylinePoints by remember { mutableStateOf(listOf<LatLng>()) }
 
-    // Autocompletado
     var query by remember { mutableStateOf(TextFieldValue("")) }
-    var suggestions by remember { mutableStateOf(listOf<Pair<String, String>>()) } // description y place_id
+    var suggestions by remember { mutableStateOf(listOf<Pair<String, String>>()) }
 
     LaunchedEffect(Unit) {
         if (!locationPermission.status.isGranted) {
@@ -102,10 +103,12 @@ fun MapScreen() {
 
         LazyColumn {
             items(suggestions) { suggestion ->
-                Text(
-                    text = suggestion.first,
+                Surface(
+                    color = MaterialTheme.colorScheme.surfaceVariant,
+                    shape = RoundedCornerShape(8.dp),
                     modifier = Modifier
                         .fillMaxWidth()
+                        .padding(horizontal = 8.dp, vertical = 4.dp)
                         .clickable {
                             query = TextFieldValue(suggestion.first)
                             suggestions = emptyList()
@@ -146,8 +149,13 @@ fun MapScreen() {
                                 }
                             }
                         }
-                        .padding(8.dp)
-                )
+                ) {
+                    Text(
+                        text = suggestion.first,
+                        color = MaterialTheme.colorScheme.onSurface,
+                        modifier = Modifier.padding(12.dp)
+                    )
+                }
             }
         }
 
@@ -177,6 +185,7 @@ fun MapScreen() {
         }
     }
 }
+
 
 private fun drawRoute(
     origen: LatLng,
