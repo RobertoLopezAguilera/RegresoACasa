@@ -72,4 +72,9 @@ dependencies {
     implementation("com.google.maps.android:maps-utils-ktx:5.0.0")
     implementation("com.google.android.gms:play-services-location:21.0.1")
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation("com.google.accompanist:accompanist-permissions:0.35.0-alpha")
+    implementation("com.google.accompanist:accompanist-permissions:0.28.0")
+
+
+
 }
